@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  background: #040814;
+  --page-edge: rgba(148, 163, 184, 0.12);
+  --panel-fill: rgba(255, 255, 255, 0.04);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at top, rgba(103, 232, 249, 0.14), transparent 28%),
+    radial-gradient(circle at 82% 18%, rgba(249, 115, 22, 0.11), transparent 22%),
+    radial-gradient(circle at 20% 75%, rgba(59, 130, 246, 0.08), transparent 24%),
+    linear-gradient(180deg, #020611 0%, #07111f 44%, #040815 100%);
+  color: #f8fafc;
+  font-family: 'Manrope', sans-serif;
+  letter-spacing: -0.01em;
+}
+
+a,
+button,
+input,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: rgba(103, 232, 249, 0.22);
+  color: #ffffff;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.section-shell {
+  padding-top: 8rem;
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  opacity: 0.6;
+  animation: drift 18s ease-in-out infinite;
+}
+
+.ambient-orb-one {
+  left: -8rem;
+  top: 8rem;
+  height: 22rem;
+  width: 22rem;
+  background: rgba(34, 211, 238, 0.15);
+}
+
+.ambient-orb-two {
+  right: -5rem;
+  top: 20rem;
+  height: 20rem;
+  width: 20rem;
+  background: rgba(249, 115, 22, 0.13);
+  animation-delay: -6s;
+}
+
+.ambient-orb-three {
+  bottom: 8rem;
+  left: 40%;
+  height: 18rem;
+  width: 18rem;
+  background: rgba(96, 165, 250, 0.12);
+  animation-delay: -10s;
+}
+
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(circle at center, black 35%, transparent 80%);
+  opacity: 0.18;
+}
+
+.noise-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.015) 10%, transparent 30%),
+    linear-gradient(245deg, rgba(255, 255, 255, 0.012) 15%, transparent 38%);
+  opacity: 0.5;
+}
+
+.portfolio-cursor {
+  height: 22px;
+  width: 22px;
+  margin-left: -11px;
+  margin-top: -11px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.55) 0%, rgba(103, 232, 249, 0.22) 45%, rgba(103, 232, 249, 0.04) 100%);
+  box-shadow: 0 0 40px rgba(103, 232, 249, 0.22);
+  opacity: 0;
+  transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.portfolio-cursor[data-mode='button'] {
+  border-color: rgba(255, 255, 255, 0.55);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.75) 0%, rgba(96, 165, 250, 0.22) 50%, rgba(96, 165, 250, 0.04) 100%);
+}
+
+.portfolio-cursor[data-mode='card'] {
+  border-color: rgba(103, 232, 249, 0.5);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.85) 0%, rgba(249, 115, 22, 0.2) 40%, rgba(249, 115, 22, 0.05) 100%);
+  box-shadow: 0 0 60px rgba(249, 115, 22, 0.18);
+}
+
+.hero-panel {
+  min-height: 460px;
+}
+
+.hero-inline-metric {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.hero-inline-metric::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 0.35rem;
+  width: 0.35rem;
+  border-radius: 9999px;
+  background: rgba(103, 232, 249, 0.8);
+  transform: translateY(-50%);
+}
+
+.hero-orbit {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  border-radius: 9999px;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero-orbit-large {
+  height: 34rem;
+  width: 34rem;
+}
+
+.hero-orbit-medium {
+  height: 25rem;
+  width: 25rem;
+}
+
+.hero-orbit-small {
+  height: 16rem;
+  width: 16rem;
+}
+
+.hero-glow {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(70px);
+  opacity: 0.65;
+}
+
+.hero-glow-cyan {
+  left: 18%;
+  top: 25%;
+  height: 12rem;
+  width: 12rem;
+  background: rgba(34, 211, 238, 0.18);
+}
+
+.hero-glow-orange {
+  right: 12%;
+  bottom: 18%;
+  height: 11rem;
+  width: 11rem;
+  background: rgba(249, 115, 22, 0.14);
+}
+
+.skill-card-premium {
+  will-change: transform;
+}
+
+.skill-card-premium h3,
+.skill-card-premium p,
+.skill-card-premium span,
+.skill-card-premium div {
+  word-break: normal;
+}
+
+.skill-card-premium::after {
+  content: '';
+  position: absolute;
+  inset: 18px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+}
+
+#skills [data-skill-card] {
+  transform-origin: center top;
+}
+
+#skills [data-skills-pin] {
+  position: relative;
+}
+
+#projects [data-cursor-target='card'] {
+  transform-origin: center center;
+}
+
+.project-card {
+  isolation: isolate;
+}
+
+.skill-row {
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-row::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(103, 232, 249, 0.45), rgba(255, 255, 255, 0.08), transparent);
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(0, -30px, 0) scale(1.06);
+  }
+}
+
+@media (max-width: 1024px) {
+  #skills [data-skill-card] {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-panel {
+    min-height: 360px;
+  }
+
+  .hero-orbit-large {
+    height: 24rem;
+    width: 24rem;
+  }
+
+  .hero-orbit-medium {
+    height: 18rem;
+    width: 18rem;
+  }
+
+  .hero-orbit-small {
+    height: 12rem;
+    width: 12rem;
+  }
+}
+
+@media (max-width: 1536px) {
+  #skills .skill-card-premium {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .section-shell {
+    padding-top: 6rem;
+  }
+
+  .grid-overlay {
+    background-size: 56px 56px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .ambient-orb {
+    animation: none;
+  }
+}

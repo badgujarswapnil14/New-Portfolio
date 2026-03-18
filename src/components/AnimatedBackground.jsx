@@ -1,0 +1,13 @@
+function AnimatedBackground() {
+  return (
+    <div className="pointer-events-none fixed inset-0 overflow-hidden">
+      <div className="ambient-orb ambient-orb-one" />
+      <div className="ambient-orb ambient-orb-two" />
+      <div className="ambient-orb ambient-orb-three" />
+      <div className="grid-overlay" />
+      <div className="noise-overlay" />
+    </div>
+  )
+}
+
+export default AnimatedBackground
