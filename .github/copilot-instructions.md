@@ -1,0 +1,5 @@
+- Build and maintain this workspace as a Vite React JavaScript portfolio project.
+- Keep the design premium, dark, recruiter-focused, and fully responsive.
+- Prefer reusable components in `src/components` and editable profile content in `src/data/portfolio.js`.
+- Use Tailwind CSS for layout and styling, with GSAP for entrance, scroll, and interaction animation.
+- Keep placeholder project cards easy to update later without restructuring the app.
